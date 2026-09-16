@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <title>首页 · 绍兴锐铭金属工具有限公司</title>
+    <style>
+        /* ===== 全局重置 ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #eef2f7;
+            color: #1a2634;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 1500px;
+            width: 100%;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 40px;
+            padding: 40px 50px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eef2f7;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 700; color: #1a2634; }
+        .logo-img { height: 40px; width: auto; display: block; }
+        .logo .company-name { font-weight: 700; color: #1a2634; font-size: 20px; white-space: nowrap; }
+        .logo .company-name small { font-weight: 300; color: #8a9aa8; font-size: 16px; }
+
+        nav { display: flex; gap: 30px; font-weight: 500; flex-wrap: wrap; }
+        nav a {
+            text-decoration: none; color: #4a5a6a; font-size: 15px;
+            padding: 6px 0; position: relative; transition: color 0.25s;
+        }
+        nav a::after {
+            content: ''; position: absolute; bottom: -2px; left: 50%;
+            transform: translateX(-50%); width: 0; height: 3px;
+            background: #1a2634; border-radius: 10px; transition: width 0.3s ease;
+        }
+        nav a:hover, nav a.active { color: #1a2634; }
+        nav a:hover::after, nav a.active::after { width: 60%; }
+
+        .hero {
+            text-align: center; padding: 80px 40px 70px; margin: 20px 0 10px;
+            position: relative; overflow: hidden; border-radius: 24px;
+            background: linear-gradient(145deg, #eef2f7 0%, #dce4ed 50%, #cdd8e3 100%);
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.5) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.3) 0%, transparent 40%),
+                linear-gradient(145deg, #eef2f7 0%, #dce4ed 50%, #cdd8e3 100%);
+        }
+        .hero::before, .hero::after {
+            content: ''; position: absolute; border-radius: 50%; pointer-events: none;
+        }
+        .hero::before {
+            top: -40%; right: -10%; width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+        }
+        .hero::after {
+            bottom: -30%; left: -5%; width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+        }
+        .hero-dots {
+            position: absolute; top: 30px; right: 40px;
+            display: flex; gap: 12px; opacity: 0.2; pointer-events: none;
+        }
+        .hero-dots span { width: 8px; height: 8px; border-radius: 50%; background: #6a7a8a; }
+        .hero-badge {
+            display: inline-block; background: rgba(26, 38, 52, 0.06);
+            backdrop-filter: blur(8px); padding: 6px 24px; border-radius: 100px;
+            font-size: 13px; font-weight: 600; color: #3a4a5e; margin-bottom: 20px;
+            border: 1px solid rgba(26, 38, 52, 0.06); letter-spacing: 0.5px;
+            position: relative; z-index: 1;
+        }
+        .hero h1 {
+            font-size: 48px; font-weight: 800; letter-spacing: -1.5px;
+            color: #1a2634; margin-bottom: 14px; position: relative; z-index: 1;
+        }
+        .hero h1::after {
+            content: ''; display: block; width: 80px; height: 4px;
+            background: #1a2634; border-radius: 10px; margin: 18px auto 0;
+        }
+        .hero p {
+            font-size: 19px; color: #3a4a5e; max-width: 560px;
+            margin: 16px auto 32px; position: relative; z-index: 1;
+        }
+        .hero-buttons {
+            display: flex; gap: 16px; justify-content: center;
+            flex-wrap: wrap; position: relative; z-index: 1;
+        }
+        .btn-primary {
+            display: inline-block; background: #1a2634; color: #ffffff;
+            padding: 14px 42px; border-radius: 60px; text-decoration: none;
+            font-weight: 700; font-size: 16px; transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(26, 38, 52, 0.12);
+        }
+        .btn-primary:hover {
+            background: #2c3d52; transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(26, 38, 52, 0.18);
+        }
+        .btn-secondary {
+            display: inline-block; background: rgba(26, 38, 52, 0.04);
+            backdrop-filter: blur(8px); color: #1a2634;
+            padding: 14px 38px; border-radius: 60px; text-decoration: none;
+            font-weight: 600; font-size: 16px;
+            border: 1.5px solid rgba(26, 38, 52, 0.12); transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: rgba(26, 38, 52, 0.08);
+            border-color: rgba(26, 38, 52, 0.2); transform: translateY(-3px);
+        }
+
+        /* ===== 轮播图 ===== */
+        .carousel-section { margin: 30px 0 10px; }
+        .carousel-wrapper {
+            position: relative; overflow: hidden; border-radius: 20px;
+            background: #f5f8fc; border: 2px solid #eef2f7;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .carousel-slide {
+            min-width: 33.3333%; aspect-ratio: 4 / 3;
+            display: flex; align-items: center; justify-content: center;
+            background: #f5f8fc; cursor: pointer;
+            position: relative; padding: 10px;
+            border-right: 2px solid #eef2f7;
+        }
+        .carousel-slide:last-child { border-right: none; }
+        .carousel-slide img {
+            width: 100%; height: 100%; object-fit: cover;
+            display: block; border-radius: 12px; transition: transform 0.3s ease;
+        }
+        .carousel-slide:hover img { transform: scale(1.03); }
+        .carousel-slide .placeholder {
+            color: #a0b0c0; font-size: 14px; text-align: center; padding: 12px;
+        }
+        .carousel-slide .placeholder span {
+            display: block; font-size: 36px; margin-bottom: 6px;
+        }
+        .carousel-slide .slide-hint {
+            position: absolute; bottom: 18px; right: 18px;
+            background: rgba(0, 0, 0, 0.6); color: #fff;
+            padding: 4px 14px; border-radius: 30px; font-size: 12px;
+            backdrop-filter: blur(4px); pointer-events: none;
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .carousel-slide:hover .slide-hint { opacity: 1; }
+
+        .carousel-dots {
+            display: flex; justify-content: center; gap: 10px; margin-top: 16px;
+        }
+        .carousel-dots .dot {
+            width: 10px; height: 10px; border-radius: 50%;
+            background: #dce2ec; border: none; cursor: pointer;
+            transition: all 0.3s ease; padding: 0;
+        }
+        .carousel-dots .dot.active {
+            background: #1a2634; width: 28px; border-radius: 10px;
+        }
+        .carousel-dots .dot:hover { background: #8a9aa8; }
+
+        footer { margin-top: 44px; padding-top: 24px; border-top: 2px solid #eef2f7; }
+        .footer-main {
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 12px; font-size: 14px; color: #8a9aa8;
+        }
+        .footer-links { display: flex; gap: 22px; }
+        .footer-links a {
+            text-decoration: none; color: #8a9aa8;
+            transition: color 0.2s; font-size: 13px;
+        }
+        .footer-links a:hover { color: #1a2634; }
+        .footer-counter {
+            text-align: center; margin-top: 14px; padding-top: 14px;
+            border-top: 1px solid #eef2f7; font-size: 14px;
+            color: #8a9aa8; letter-spacing: 0.5px;
+        }
+        .footer-counter span { font-weight: 700; color: #1a2634; font-size: 16px; }
+
+        @media (max-width: 820px) {
+            .container { padding: 28px 24px; border-radius: 28px; }
+            .hero { padding: 50px 20px 40px; border-radius: 18px; }
+            .hero h1 { font-size: 34px; }
+            .logo .company-name { font-size: 17px; }
+            .logo .company-name small { font-size: 14px; }
+            .carousel-slide { min-width: 50%; }
+        }
+        @media (max-width: 500px) {
+            body { padding: 12px; }
+            .container { padding: 20px 16px; border-radius: 20px; }
+            header { flex-direction: column; align-items: flex-start; }
+            nav { gap: 16px; }
+            .hero { padding: 30px 16px 28px; border-radius: 14px; }
+            .hero h1 { font-size: 28px; }
+            .hero p { font-size: 15px; }
+            .footer-main { flex-direction: column; text-align: center; }
+            .btn-primary, .btn-secondary { padding: 11px 26px; font-size: 14px; }
+            .logo .company-name { font-size: 15px; }
+            .logo .company-name small { font-size: 12px; }
+            .carousel-slide { min-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <div class="logo">
+            <img src="pictures/logo.png" alt="公司Logo" class="logo-img" />
+            <span class="company-name">
+                绍兴锐铭金属工具有限公司
+                <small>· 品质为本</small>
+            </span>
+        </div>
+        <nav>
+            <a href="index.html" class="active">首页</a>
+            <a href="about.html">公司简介</a>
+            <a href="products.html">产品中心</a>
+            <a href="contact.html">联系我们</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-dots">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="hero-badge">✨ 值得信赖的品牌</div>
+        <h1>专注品质 · 诚信致远</h1>
+        <p>以精工制造驱动高效生产，为您的业务创造真实价值。</p>
+        <div class="hero-buttons">
+            <a href="about.html" class="btn-primary">了解更多 →</a>
+            <a href="contact.html" class="btn-secondary">联系我们</a>
+        </div>
+    </section>
+
+    <!-- ===== 轮播图（静态版，手动列出图片） ===== -->
+    <section class="carousel-section">
+        <div class="carousel-wrapper">
+            <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-slide" onclick="location.href='products.html?id=product01'">
+                    <img src="images/product01.jpg" alt="product01" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder" style="display:none;"><span>🖼️</span> product01</div>
+                    <div class="slide-hint">点击查看 →</div>
+                </div>
+                <div class="carousel-slide" onclick="location.href='products.html?id=product02'">
+                    <img src="images/product02.jpg" alt="product02" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder" style="display:none;"><span>🖼️</span> product02</div>
+                    <div class="slide-hint">点击查看 →</div>
+                </div>
+                <div class="carousel-slide" onclick="location.href='products.html?id=product03'">
+                    <img src="images/product03.jpg" alt="product03" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder" style="display:none;"><span>🖼️</span> product03</div>
+                    <div class="slide-hint">点击查看 →</div>
+                </div>
+                <div class="carousel-slide" onclick="location.href='products.html?id=product04'">
+                    <img src="images/product04.jpg" alt="product04" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder" style="display:none;"><span>🖼️</span> product04</div>
+                    <div class="slide-hint">点击查看 →</div>
+                </div>
+                <div class="carousel-slide" onclick="location.href='products.html?id=product05'">
+                    <img src="images/product05.jpg" alt="product05" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder" style="display:none;"><span>🖼️</span> product05</div>
+                    <div class="slide-hint">点击查看 →</div>
+                </div>
+                <div class="carousel-slide" onclick="location.href='products.html?id=product06'">
+                    <img src="images/product06.jpg" alt="product06" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder" style="display:none;"><span>🖼️</span> product06</div>
+                    <div class="slide-hint">点击查看 →</div>
+                </div>
+                <div class="carousel-slide" onclick="location.href='products.html?id=product07'">
+                    <img src="images/product07.jpg" alt="product07" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder" style="display:none;"><span>🖼️</span> product07</div>
+                    <div class="slide-hint">点击查看 →</div>
+                </div>
+                <div class="carousel-slide" onclick="location.href='products.html?id=product08'">
+                    <img src="images/product08.jpg" alt="product08" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder" style="display:none;"><span>🖼️</span> product08</div>
+                    <div class="slide-hint">点击查看 →</div>
+                </div>
+                <div class="carousel-slide" onclick="location.href='products.html?id=product09'">
+                    <img src="images/product09.jpg" alt="product09" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder" style="display:none;"><span>🖼️</span> product09</div>
+                    <div class="slide-hint">点击查看 →</div>
+                </div>
+                <div class="carousel-slide" onclick="location.href='products.html?id=product10'">
+                    <img src="images/product10.jpg" alt="product10" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder" style="display:none;"><span>🖼️</span> product10</div>
+                    <div class="slide-hint">点击查看 →</div>
+                </div>
+                <div class="carousel-slide" onclick="location.href='products.html?id=product11'">
+                    <img src="images/product11.png" alt="product11" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder" style="display:none;"><span>🖼️</span> product11</div>
+                    <div class="slide-hint">点击查看 →</div>
+                </div>
+                <div class="carousel-slide" onclick="location.href='products.html?id=product12'">
+                    <img src="images/product12.jpg" alt="product12" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder" style="display:none;"><span>🖼️</span> product12</div>
+                    <div class="slide-hint">点击查看 →</div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+    </section>
+
+    <footer>
+        <div class="footer-main">
+            <p>&copy; 2026 绍兴锐铭金属工具有限公司 · 用心创造价值</p>
+            <div class="footer-links">
+                <a href="#">隐私政策</a>
+                <a href="#">使用条款</a>
+                <a href="contact.html">联系我们</a>
+            </div>
+        </div>
+        <div class="footer-counter">
+            您是本站第 <span id="visitCounter">10000</span> 位访客
+        </div>
+    </footer>
+
+</div>
+
+<script>
+    (function() {
+        "use strict";
+
+        // 计数器
+        const COUNTER_KEY = 'my_enterprise_visits';
+        const SESSION_FLAG = 'my_enterprise_visited_this_session';
+        let count = parseInt(localStorage.getItem(COUNTER_KEY), 10);
+        if (isNaN(count) || count < 0) count = 0;
+        if (!sessionStorage.getItem(SESSION_FLAG)) {
+            count += 1;
+            localStorage.setItem(COUNTER_KEY, String(count));
+            sessionStorage.setItem(SESSION_FLAG, 'true');
+        }
+        const counterEl = document.getElementById('visitCounter');
+        if (counterEl) counterEl.textContent = count;
+
+        // 轮播图
+        const track = document.getElementById('carouselTrack');
+        const dotsContainer = document.getElementById('carouselDots');
+        const slides = track.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+        const slidesPerView = window.innerWidth < 500 ? 1 : (window.innerWidth < 820 ? 2 : 3);
+
+        for (let i = 0; i < slidesPerView; i++) {
+            const clone = slides[i].cloneNode(true);
+            track.appendChild(clone);
+        }
+
+        let currentIndex = 0;
+        const dotCount = totalSlides;
+
+        for (let i = 0; i < dotCount; i++) {
+            const dot = document.createElement('button');
+            dot.className = 'dot' + (i === 0 ? ' active' : '');
+            dot.dataset.index = i;
+            dot.addEventListener('click', function() {
+                const targetIndex = parseInt(this.dataset.index);
+                goToSlide(targetIndex, true);
+                resetAutoPlay();
+            });
+            dotsContainer.appendChild(dot);
+        }
+
+        const dots = dotsContainer.querySelectorAll('.dot');
+
+        function goToSlide(index, manual) {
+            if (index < 0) index = totalSlides - 1;
+            if (index >= totalSlides) index = 0;
+            currentIndex = index;
+            const slideWidth = 100 / slidesPerView;
+            const offset = currentIndex * slideWidth;
+            track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            track.style.transform = 'translateX(-' + offset + '%)';
+            dots.forEach(function(dot, i) {
+                dot.classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        function nextSlide() {
+            const nextIndex = currentIndex + 1;
+            if (nextIndex < totalSlides) {
+                goToSlide(nextIndex, false);
+            } else {
+                const slideWidth = 100 / slidesPerView;
+                const cloneOffset = totalSlides * slideWidth;
+                track.style.transition = 'none';
+                track.style.transform = 'translateX(-' + cloneOffset + '%)';
+                void track.offsetHeight;
+                currentIndex = 0;
+                track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                track.style.transform = 'translateX(0%)';
+                dots.forEach(function(dot, i) {
+                    dot.classList.toggle('active', i === currentIndex);
+                });
+            }
+        }
+
+        let autoPlayInterval = null;
+
+        function resetAutoPlay() {
+            if (autoPlayInterval) clearInterval(autoPlayInterval);
+            autoPlayInterval = setInterval(nextSlide, 2000);
+        }
+
+        const carouselWrapper = document.querySelector('.carousel-wrapper');
+        carouselWrapper.addEventListener('mouseenter', function() {
+            if (autoPlayInterval) { clearInterval(autoPlayInterval); autoPlayInterval = null; }
+        });
+        carouselWrapper.addEventListener('mouseleave', function() { resetAutoPlay(); });
+
+        goToSlide(0, true);
+        resetAutoPlay();
+
+    })();
+</script>
+
+</body>
+</html>
