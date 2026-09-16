@@ -3,48 +3,32 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <title>产品中心 · 绍兴锐铭金属工具有限公司</title>
 
-    <!-- ★ Magnific Popup CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" />
 
     <style>
-        /* ===== 全局重置 ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-            background: #eef2f7;
-            color: #1a2634;
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 30px;
+            background: #eef2f7; color: #1a2634; line-height: 1.6;
+            min-height: 100vh; display: flex;
+            align-items: center; justify-content: center; padding: 30px;
         }
 
         .container {
-            max-width: 1500px;
-            width: 100%;
-            margin: 0 auto;
-            background: #ffffff;
-            border-radius: 40px;
-            padding: 40px 50px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+            max-width: 1500px; width: 100%; margin: 0 auto;
+            background: #ffffff; border-radius: 40px;
+            padding: 40px 50px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
         }
 
-        /* ===== 导航栏 ===== */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #eef2f7;
-            flex-wrap: wrap;
-            gap: 16px;
+            display: flex; justify-content: space-between; align-items: center;
+            padding-bottom: 20px; border-bottom: 2px solid #eef2f7;
+            flex-wrap: wrap; gap: 16px;
         }
-
         .logo { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 700; color: #1a2634; }
         .logo-img { height: 40px; width: auto; display: block; }
         .logo .company-name { font-weight: 700; color: #1a2634; font-size: 20px; white-space: nowrap; }
@@ -63,7 +47,6 @@
         nav a:hover, nav a.active { color: #1a2634; }
         nav a:hover::after, nav a.active::after { width: 60%; }
 
-        /* ===== 页面标题区 ===== */
         .page-hero {
             text-align: center; padding: 60px 40px 50px; margin: 20px 0 30px;
             position: relative; overflow: hidden; border-radius: 24px;
@@ -91,36 +74,24 @@
         }
         .page-hero p { font-size: 18px; color: #3a4a5e; max-width: 560px; margin: 14px auto 0; position: relative; z-index: 1; }
 
-        /* ===== 产品列表 ===== */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 28px;
         }
-
         .product-card {
             background: #f5f8fc; border-radius: 20px; overflow: hidden;
             border: 1px solid #eef2f7; transition: all 0.3s ease;
         }
-        .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
-        }
-
+        .product-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06); }
         .product-card .product-img {
             aspect-ratio: 4 / 3; display: flex; align-items: center;
             justify-content: center; background: #fff; overflow: hidden;
             position: relative; cursor: pointer;
         }
-        .product-card .product-img img {
-            width: 100%; height: 100%; object-fit: cover; display: block;
-        }
-        .product-card .product-img .img-link {
-            display: block; width: 100%; height: 100%;
-        }
-        .product-card .product-img .img-link img {
-            width: 100%; height: 100%; object-fit: cover; display: block;
-        }
+        .product-card .product-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .product-card .product-img .img-link { display: block; width: 100%; height: 100%; }
+        .product-card .product-img .img-link img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .product-card .product-img::after {
             content: '🔍 点击放大'; position: absolute; bottom: 12px; right: 12px;
             background: rgba(0, 0, 0, 0.7); color: #fff; padding: 4px 14px;
@@ -128,17 +99,10 @@
             transition: opacity 0.3s; pointer-events: none; z-index: 2;
         }
         .product-card .product-img:hover::after { opacity: 1; }
-        .product-card .product-img .placeholder {
-            color: #a0b0c0; font-size: 14px; text-align: center; padding: 12px;
-        }
-        .product-card .product-img .placeholder span {
-            display: block; font-size: 40px; margin-bottom: 6px;
-        }
-
+        .product-card .product-img .placeholder { color: #a0b0c0; font-size: 14px; text-align: center; padding: 12px; }
+        .product-card .product-img .placeholder span { display: block; font-size: 40px; margin-bottom: 6px; }
         .product-card .product-info { padding: 16px 20px 20px; }
-        .product-card .product-info p {
-            font-size: 15px; color: #2c3d52; margin-bottom: 12px; font-weight: 500;
-        }
+        .product-card .product-info p { font-size: 15px; color: #2c3d52; margin-bottom: 12px; font-weight: 500; }
         .product-card .product-info .tag {
             display: inline-block; font-size: 12px; font-weight: 600;
             background: #dce2ec; padding: 2px 14px; border-radius: 20px; color: #3a4a5e;
@@ -146,7 +110,6 @@
         .product-card .product-info .tag.new { background: #1a2634; color: #fff; }
         .product-card .product-info .tag.hot { background: #c0392b; color: #fff; }
 
-        /* ===== 页脚 ===== */
         footer { margin-top: 44px; padding-top: 24px; border-top: 2px solid #eef2f7; }
         .footer-main {
             display: flex; justify-content: space-between; align-items: center;
@@ -214,7 +177,6 @@
         <p>以匠心打磨每一款产品，为不同场景提供专业解决方案</p>
     </section>
 
-    <!-- ★ 所有图片链接都在同一个 image-popup 组里，才能左右切换 -->
     <div class="products-grid" id="product-gallery">
 
         <div class="product-card">
@@ -385,26 +347,26 @@
             </div>
         </div>
         <div class="footer-counter">
-            您是本站第 <span id="visitCounter">0</span> 位访客
+            您是本站第 <span id="busuanzi_value_site_pv">...</span> 位访客
         </div>
     </footer>
 
 </div>
 
+<!-- 不蒜子计数器 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script>
-    (function() {
-        const COUNTER_KEY = 'my_enterprise_visits';
-        const SESSION_FLAG = 'my_enterprise_visited_this_session';
-        let count = parseInt(localStorage.getItem(COUNTER_KEY), 10);
-        if (isNaN(count) || count < 0) count = 0;
-        if (!sessionStorage.getItem(SESSION_FLAG)) {
-            count += 1;
-            localStorage.setItem(COUNTER_KEY, String(count));
-            sessionStorage.setItem(SESSION_FLAG, 'true');
-        }
-        const counterEl = document.getElementById('visitCounter');
-        if (counterEl) counterEl.textContent = count;
-    })();
+    document.addEventListener('DOMContentLoaded', function() {
+        var baseOffset = 100000;
+        var timer = setInterval(function() {
+            var el = document.getElementById('busuanzi_value_site_pv');
+            if (el && el.innerHTML && el.innerHTML !== '...') {
+                clearInterval(timer);
+                var realCount = parseInt(el.innerHTML, 10) || 0;
+                el.innerHTML = realCount + baseOffset;
+            }
+        }, 200);
+    });
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -413,18 +375,9 @@
     $(document).ready(function() {
         $('.image-popup').magnificPopup({
             type: 'image',
-            gallery: {
-                enabled: true,
-                navigateByImgClick: true,
-                preload: [0, 1]
-            },
-            image: {
-                titleSrc: 'alt'
-            },
-            zoom: {
-                enabled: true,
-                duration: 300
-            }
+            gallery: { enabled: true, navigateByImgClick: true, preload: [0, 1] },
+            image: { titleSrc: 'alt' },
+            zoom: { enabled: true, duration: 300 }
         });
     });
 </script>

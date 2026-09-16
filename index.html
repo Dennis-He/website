@@ -3,48 +3,29 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <title>首页 · 绍兴锐铭金属工具有限公司</title>
     <style>
-        /* ===== 全局重置 ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-            background: #eef2f7;
-            color: #1a2634;
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 30px;
+            background: #eef2f7; color: #1a2634; line-height: 1.6;
+            min-height: 100vh; display: flex;
+            align-items: center; justify-content: center; padding: 30px;
         }
 
         .container {
-            max-width: 1500px;
-            width: 100%;
-            margin: 0 auto;
-            background: #ffffff;
-            border-radius: 40px;
-            padding: 40px 50px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+            max-width: 1500px; width: 100%; margin: 0 auto;
+            background: #ffffff; border-radius: 40px;
+            padding: 40px 50px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
         }
 
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #eef2f7;
-            flex-wrap: wrap;
-            gap: 16px;
+            display: flex; justify-content: space-between; align-items: center;
+            padding-bottom: 20px; border-bottom: 2px solid #eef2f7;
+            flex-wrap: wrap; gap: 16px;
         }
-
         .logo { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 700; color: #1a2634; }
         .logo-img { height: 40px; width: auto; display: block; }
         .logo .company-name { font-weight: 700; color: #1a2634; font-size: 20px; white-space: nowrap; }
@@ -133,7 +114,6 @@
             border-color: rgba(26, 38, 52, 0.2); transform: translateY(-3px);
         }
 
-        /* ===== 轮播图 ===== */
         .carousel-section { margin: 30px 0 10px; }
         .carousel-wrapper {
             position: relative; overflow: hidden; border-radius: 20px;
@@ -259,66 +239,65 @@
         </div>
     </section>
 
-    <!-- ===== 轮播图（静态版，手动列出图片） ===== -->
     <section class="carousel-section">
         <div class="carousel-wrapper">
             <div class="carousel-track" id="carouselTrack">
-                <div class="carousel-slide" onclick="location.href='products.html?id=product01'">
+                <div class="carousel-slide" onclick="location.href='products.html'">
                     <img src="images/product01.jpg" alt="product01" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder" style="display:none;"><span>🖼️</span> product01</div>
                     <div class="slide-hint">点击查看 →</div>
                 </div>
-                <div class="carousel-slide" onclick="location.href='products.html?id=product02'">
+                <div class="carousel-slide" onclick="location.href='products.html'">
                     <img src="images/product02.jpg" alt="product02" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder" style="display:none;"><span>🖼️</span> product02</div>
                     <div class="slide-hint">点击查看 →</div>
                 </div>
-                <div class="carousel-slide" onclick="location.href='products.html?id=product03'">
+                <div class="carousel-slide" onclick="location.href='products.html'">
                     <img src="images/product03.jpg" alt="product03" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder" style="display:none;"><span>🖼️</span> product03</div>
                     <div class="slide-hint">点击查看 →</div>
                 </div>
-                <div class="carousel-slide" onclick="location.href='products.html?id=product04'">
+                <div class="carousel-slide" onclick="location.href='products.html'">
                     <img src="images/product04.jpg" alt="product04" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder" style="display:none;"><span>🖼️</span> product04</div>
                     <div class="slide-hint">点击查看 →</div>
                 </div>
-                <div class="carousel-slide" onclick="location.href='products.html?id=product05'">
+                <div class="carousel-slide" onclick="location.href='products.html'">
                     <img src="images/product05.jpg" alt="product05" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder" style="display:none;"><span>🖼️</span> product05</div>
                     <div class="slide-hint">点击查看 →</div>
                 </div>
-                <div class="carousel-slide" onclick="location.href='products.html?id=product06'">
+                <div class="carousel-slide" onclick="location.href='products.html'">
                     <img src="images/product06.jpg" alt="product06" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder" style="display:none;"><span>🖼️</span> product06</div>
                     <div class="slide-hint">点击查看 →</div>
                 </div>
-                <div class="carousel-slide" onclick="location.href='products.html?id=product07'">
+                <div class="carousel-slide" onclick="location.href='products.html'">
                     <img src="images/product07.jpg" alt="product07" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder" style="display:none;"><span>🖼️</span> product07</div>
                     <div class="slide-hint">点击查看 →</div>
                 </div>
-                <div class="carousel-slide" onclick="location.href='products.html?id=product08'">
+                <div class="carousel-slide" onclick="location.href='products.html'">
                     <img src="images/product08.jpg" alt="product08" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder" style="display:none;"><span>🖼️</span> product08</div>
                     <div class="slide-hint">点击查看 →</div>
                 </div>
-                <div class="carousel-slide" onclick="location.href='products.html?id=product09'">
+                <div class="carousel-slide" onclick="location.href='products.html'">
                     <img src="images/product09.jpg" alt="product09" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder" style="display:none;"><span>🖼️</span> product09</div>
                     <div class="slide-hint">点击查看 →</div>
                 </div>
-                <div class="carousel-slide" onclick="location.href='products.html?id=product10'">
+                <div class="carousel-slide" onclick="location.href='products.html'">
                     <img src="images/product10.jpg" alt="product10" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder" style="display:none;"><span>🖼️</span> product10</div>
                     <div class="slide-hint">点击查看 →</div>
                 </div>
-                <div class="carousel-slide" onclick="location.href='products.html?id=product11'">
+                <div class="carousel-slide" onclick="location.href='products.html'">
                     <img src="images/product11.png" alt="product11" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder" style="display:none;"><span>🖼️</span> product11</div>
                     <div class="slide-hint">点击查看 →</div>
                 </div>
-                <div class="carousel-slide" onclick="location.href='products.html?id=product12'">
+                <div class="carousel-slide" onclick="location.href='products.html'">
                     <img src="images/product12.jpg" alt="product12" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder" style="display:none;"><span>🖼️</span> product12</div>
                     <div class="slide-hint">点击查看 →</div>
@@ -338,30 +317,31 @@
             </div>
         </div>
         <div class="footer-counter">
-            您是本站第 <span id="visitCounter">10000</span> 位访客
+            您是本站第 <span id="busuanzi_value_site_pv">...</span> 位访客
         </div>
     </footer>
 
 </div>
 
+<!-- 不蒜子计数器 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var baseOffset = 100000;
+        var timer = setInterval(function() {
+            var el = document.getElementById('busuanzi_value_site_pv');
+            if (el && el.innerHTML && el.innerHTML !== '...') {
+                clearInterval(timer);
+                var realCount = parseInt(el.innerHTML, 10) || 0;
+                el.innerHTML = realCount + baseOffset;
+            }
+        }, 200);
+    });
+</script>
+
 <script>
     (function() {
         "use strict";
-
-        // 计数器
-        const COUNTER_KEY = 'my_enterprise_visits';
-        const SESSION_FLAG = 'my_enterprise_visited_this_session';
-        let count = parseInt(localStorage.getItem(COUNTER_KEY), 10);
-        if (isNaN(count) || count < 0) count = 0;
-        if (!sessionStorage.getItem(SESSION_FLAG)) {
-            count += 1;
-            localStorage.setItem(COUNTER_KEY, String(count));
-            sessionStorage.setItem(SESSION_FLAG, 'true');
-        }
-        const counterEl = document.getElementById('visitCounter');
-        if (counterEl) counterEl.textContent = count;
-
-        // 轮播图
         const track = document.getElementById('carouselTrack');
         const dotsContainer = document.getElementById('carouselDots');
         const slides = track.querySelectorAll('.carousel-slide');
