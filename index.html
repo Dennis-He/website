@@ -317,7 +317,7 @@
             </div>
         </div>
         <div class="footer-counter">
-            您是本站第 <span id="busuanzi_value_site_pv">...</span> 位访客
+            您是本站第 <span id="busuanzi_value_site_uv">...</span> 位访客
         </div>
     </footer>
 
@@ -329,7 +329,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         var baseOffset = 100000;
         var timer = setInterval(function() {
-            var el = document.getElementById('busuanzi_value_site_pv');
+            var el = document.getElementById('busuanzi_value_site_uv');
             if (el && el.innerHTML && el.innerHTML !== '...') {
                 clearInterval(timer);
                 var realCount = parseInt(el.innerHTML, 10) || 0;
@@ -345,7 +345,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         var baseOffset = 100000;
         var timer = setInterval(function() {
-            var el = document.getElementById('busuanzi_value_site_pv');
+            var el = document.getElementById('busuanzi_value_site_uv');
             if (el && el.innerHTML && el.innerHTML !== '...') {
                 clearInterval(timer);
                 var realCount = parseInt(el.innerHTML, 10) || 0;
