@@ -385,6 +385,23 @@
     });
 </script>
 -->
+
+<!-- 不蒜子（暂时停用，以后想换回，删掉下面这行的注释符号即可启用）
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var baseOffset = 100000;
+        var timer = setInterval(function() {
+            var el = document.getElementById('busuanzi_value_site_uv');
+            if (el && el.innerHTML && el.innerHTML !== '...') {
+                clearInterval(timer);
+                var realCount = parseInt(el.innerHTML, 10) || 0;
+                el.innerHTML = realCount + baseOffset;
+            }
+        }, 200);
+    });
+</script>
+-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 <script>
