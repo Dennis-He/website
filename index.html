@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>首页 · 绍兴锐铭金属工具有限公司</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <title>首页 · 绍兴锐铭金属工具有限公司</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -323,7 +323,23 @@
 
 </div>
 
-<!-- 不蒜子计数器 -->
+<!-- 计数器：Vercount（当前启用），不蒜子（已停用，保留备用） -->
+<script defer src="https://events.vercount.one/js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var baseOffset = 100000;
+        var timer = setInterval(function() {
+            var el = document.getElementById('busuanzi_value_site_pv');
+            if (el && el.innerHTML && el.innerHTML !== '...') {
+                clearInterval(timer);
+                var realCount = parseInt(el.innerHTML, 10) || 0;
+                el.innerHTML = realCount + baseOffset;
+            }
+        }, 200);
+    });
+</script>
+
+<!-- 不蒜子（暂时停用，以后想换回，删掉下面这行的注释符号即可启用）
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -338,6 +354,7 @@
         }, 200);
     });
 </script>
+-->
 
 <script>
     (function() {
