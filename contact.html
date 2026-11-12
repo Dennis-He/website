@@ -296,17 +296,20 @@
                 <label>验证码 <span class="required">*</span></label>
                 <div class="captcha-row">
                     <div class="captcha-box">
-                        <span id="captchaText">A7K2</span>
+                        <span id="captchaText">3 + 5 = ?</span>
                         <button type="button" class="refresh-btn" id="refreshCaptcha" title="刷新验证码">⟳</button>
                     </div>
-                    <input type="text" class="captcha-input" id="captchaInput" placeholder="请输入上方验证码" maxlength="4" required />
+                    <!-- 注意这里去掉了 maxlength="4"，因为算术答案可能是两位数 -->
+                    <input type="text" class="captcha-input" id="captchaInput" placeholder="请输入计算结果" required />
                 </div>
             </div>
 
             <div class="submit-success" id="submitSuccess">
                 ✅ 提交成功！我们会尽快与您联系。
             </div>
-<input type="text" name="_honey" style="display:none">
+            
+            <input type="text" name="_honey" style="display:none">
+            
             <button type="submit" class="submit-btn" id="submitBtn">提交留言 ✉️</button>
         </form>
 
@@ -367,6 +370,8 @@
     });
 </script>
 -->
+
+<!-- 验证码与表单提交逻辑 -->
 <script>
     (function() {
         "use strict";
@@ -375,6 +380,12 @@
         const refreshBtn = document.getElementById('refreshCaptcha');
         const captchaInput = document.getElementById('captchaInput');
 
+        // ============================================================
+        // 1. 验证码逻辑
+        // ============================================================
+        
+        /* 
+        // ★ 原始字母验证码逻辑（已停用，保留备用）
         function generateCaptcha() {
             const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
             let code = '';
@@ -384,15 +395,37 @@
             captchaText.textContent = code;
             return code;
         }
-
         let currentCaptcha = generateCaptcha();
+        */
+
+        // ★ 新版算术题验证码逻辑（当前启用）
+        let currentAnswer = 0; 
+
+        function generateCaptcha() {
+            // 生成 1~10 的随机数
+            var num1 = Math.floor(Math.random() * 10) + 1;
+            var num2 = Math.floor(Math.random() * 10) + 1;
+            
+            // 存下正确的答案
+            currentAnswer = num1 + num2;
+            
+            // 显示在页面上：比如 "3 + 5 = ?"
+            captchaText.textContent = num1 + ' + ' + num2 + ' = ?';
+            return currentAnswer;
+        }
+
+        // 初始化第一道题
+        generateCaptcha();
 
         refreshBtn.addEventListener('click', function() {
-            currentCaptcha = generateCaptcha();
+            generateCaptcha(); // 刷新题目
             captchaInput.value = '';
             captchaInput.focus();
         });
 
+        // ============================================================
+        // 2. 表单提交逻辑
+        // ============================================================
         const form = document.getElementById('msgForm');
         const submitBtn = document.getElementById('submitBtn');
         const successDiv = document.getElementById('submitSuccess');
@@ -400,11 +433,24 @@
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
 
+            /* 
+            // ★ 原始字母比对逻辑（已停用）
             const captcha = captchaInput.value.trim();
             if (captcha.toUpperCase() !== currentCaptcha) {
                 alert('验证码错误，请重新输入');
                 captchaInput.value = '';
                 currentCaptcha = generateCaptcha();
+                captchaInput.focus();
+                return;
+            }
+            */
+
+            // ★ 新版算术题比对逻辑（当前启用）
+            const userAnswer = parseInt(captchaInput.value.trim(), 10);
+            if (userAnswer !== currentAnswer) {
+                alert('算术题答案错误，请重新输入');
+                captchaInput.value = '';
+                generateCaptcha(); // 答错了换一道题
                 captchaInput.focus();
                 return;
             }
@@ -424,7 +470,7 @@
                 if (res.ok) {
                     successDiv.classList.add('show');
                     form.reset();
-                    currentCaptcha = generateCaptcha();
+                    generateCaptcha(); // 提交成功后刷新题目
                     setTimeout(function() {
                         successDiv.classList.remove('show');
                     }, 5000);
