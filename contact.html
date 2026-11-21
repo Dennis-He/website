@@ -268,6 +268,10 @@
               method="POST">
             <input type="hidden" name="_replyto" value="email">
             <input type="hidden" name="_captcha" value="true">
+            <!-- ★ 新增：强制拦截包含链接的垃圾提交（设 0 表示不允许任何链接） -->
+            <input type="hidden" name="_limit_links" value="0">
+            <!-- ★ 新增：设置邮件标题格式，让你在邮箱里一眼看出是谁发的 -->
+            <input type="hidden" name="_subject" value="【官网留言】来自 _replyto 的新消息">
 
             <h2>📩 在线留言</h2>
 
@@ -299,7 +303,6 @@
                         <span id="captchaText">3 + 5 = ?</span>
                         <button type="button" class="refresh-btn" id="refreshCaptcha" title="刷新验证码">⟳</button>
                     </div>
-                    <!-- 注意这里去掉了 maxlength="4"，因为算术答案可能是两位数 -->
                     <input type="text" class="captcha-input" id="captchaInput" placeholder="请输入计算结果" required />
                 </div>
             </div>
@@ -308,6 +311,7 @@
                 ✅ 提交成功！我们会尽快与您联系。
             </div>
             
+            <!-- 蜜罐字段：防机器人填写 -->
             <input type="text" name="_honey" style="display:none">
             
             <button type="submit" class="submit-btn" id="submitBtn">提交留言 ✉️</button>
